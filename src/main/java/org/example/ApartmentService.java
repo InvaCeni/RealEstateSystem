@@ -203,4 +203,22 @@ public class ApartmentService {
         System.out.println("Status: " + resultSet.getString("status"));
         System.out.println("-----------------------------------");
     }
+
+    public void searchApartments(String location, Double minPrice, Double maxPrice) {
+        Connection connection = DatabaseConnection.getConnection();
+        if (connection != null) {
+            String query = "SELECT * FROM apartments WHERE address LIKE ? AND price BETWEEN ? AND ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setString(1, "%" + location + "%");
+                preparedStatement.setDouble(2, minPrice);
+                preparedStatement.setDouble(3, maxPrice);
+                ResultSet resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    displayApartment(resultSet);
+                }
+            } catch (SQLException e) {
+                System.out.println("Failed to search apartments: " + e.getMessage());
+            }
+        }
+    }
 }
