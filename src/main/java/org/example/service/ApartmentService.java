@@ -1,4 +1,7 @@
-package org.example;
+package org.example.service;
+import org.example.configuration.DatabaseConnection;
+import org.example.entity.Apartment;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

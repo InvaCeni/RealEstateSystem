@@ -1,4 +1,7 @@
 package org.example;
+import org.example.entity.Apartment;
+import org.example.service.ApartmentService;
+
 import java.util.Scanner;
 
 public class Main {
