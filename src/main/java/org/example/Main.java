@@ -26,6 +26,7 @@ public class Main {
         boolean exit = false;
 
         while (!exit) {
+
             System.out.println("\nVendor Menu:");
             System.out.println("1. Add New Apartment");
             System.out.println("2. View My Apartments");
